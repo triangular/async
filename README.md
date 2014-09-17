@@ -9,6 +9,15 @@ Just to give the javascript thread an opportunity to trigger any other events th
 
 ***
 
+Install
+-------
+
+```
+bower install tri-angular-async
+```
+
+***
+
 Documentation
 -------------
 
