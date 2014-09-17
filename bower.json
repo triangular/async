@@ -1,7 +1,18 @@
 {
-  "name": "triangular-async",
-  "version": "0.0.1",
+  "name": "tri-angular-async",
+  "version": "0.1.0",
+  "main": [
+    "dist/*.js",
+    "dist/*.map"
+  ],
+  "ignore": [
+    "demo/",
+    "Gruntfile.js",
+    "CONTRIBUTING.md",
+    ".gitignore",
+    ".bowerrs"
+  ],
   "dependencies": {
-    "angular": "~1.2.11"
+    "angular": "1.2.24"
   }
 }

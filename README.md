@@ -14,18 +14,3 @@ Documentation
 
 Will be written...
 
-Contributing
-------------
-
-Fork and clone project, then run:
-
-```
-npm install
-bower install
-```
-
-to lint and minify run (grunt-cli must be installed locally)
-
-```
-grunt
-```
