@@ -10,7 +10,7 @@
     "Gruntfile.js",
     "CONTRIBUTING.md",
     ".gitignore",
-    ".bowerrs"
+    ".bowerrc"
   ],
   "dependencies": {
     "angular": "1.2.24"
