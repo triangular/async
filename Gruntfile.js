@@ -34,7 +34,7 @@ module.exports = function(grunt) {
                 "unused": true,
                 "white": true
             },
-            default: ['src/triangular-async.js']
+            default: ['src/tri-angular-async.js']
         },
 
         uglify: {
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
             },
             my_target: {
                 files: {
-                    'dist/triangular-async.min.js': ['src/triangular-async.js']
+                    'dist/tri-angular-async.min.js': ['src/tri-angular-async.js']
                 }
             }
         },
@@ -52,8 +52,8 @@ module.exports = function(grunt) {
         copy: {
             main: {
                 files: [
-                    {src: ['src/triangular-async.js'], dest: 'demo/lib/triangular-async/triangular-async.js'},
-                    {src: ['src/triangular-async.js'], dest: 'dist/triangular-async.js'}
+                    {src: ['src/tri-angular-async.js'], dest: 'demo/lib/tri-angular-async/tri-angular-async.js'},
+                    {src: ['src/tri-angular-async.js'], dest: 'dist/tri-angular-async.js'}
                 ]
             }
         }

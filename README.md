@@ -9,17 +9,32 @@ Just to give the javascript thread an opportunity to trigger any other events th
 
 ***
 
-Install
--------
+Installation and use
+--------------------
 
 ```
 bower install tri-angular-async
 ```
 
-***
 
-Documentation
--------------
+- Add script to your main html file (normal - '/dist/triangular-async.js' or minified - '/dist/triangular-async.min.js').
+- Add `triNgAsync` module as dependency to your modules.
 
-Will be written...
+Now you can inject `$async` in any service/controller:
+
+```
+$async(function () {
+    console.log('b');
+});
+console.log('a');
+```
+
+will output:
+
+```
+'a'
+'b'
+```
+
+Also $rootScope.$digest() will be called just after callback passed to $async().
 
