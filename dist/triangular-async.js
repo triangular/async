@@ -21,6 +21,7 @@
                     try {
                         fn();
                     } catch (e) {
+                        e.message = e.message + ' :: triNgAsync.$async';
                         $log.error(e);
                     } finally {
                         $root.$apply();
@@ -34,4 +35,4 @@
         };
     });
 
-}(angular, angular.module('triAsync', [])));
+}(angular, angular.module('triNgAsync', ['ng'])));
