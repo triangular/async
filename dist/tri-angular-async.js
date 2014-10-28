@@ -15,23 +15,40 @@
                 return window.setTimeout(fnCaller, 21);
             };
 
-        var AsyncService = function ($log, $root) {
-            return function (fn) {
-                async(function () {
+        var asyncService = function ($log, $root) {
+            var future = function (fn, mode) {
+                var scope = $root;
+
+                if (mode) {
+                    scope = angular.isFunction(mode.$destroy) ? mode : null;
+                }
+
+                return async(function () {
                     try {
                         fn();
                     } catch (e) {
                         e.message = e.message + ' :: triNgAsync.$async';
                         $log.error(e);
                     } finally {
-                        $root.$apply();
+                        scope && scope.$digest();
                     }
                 });
             };
+
+            return angular.extend(future, {
+                clean: function (fn) {
+                    return this(fn, true);
+                },
+
+                local: function (scope, fn) {
+                    return this(fn, scope);
+                }
+            });
+
         };
 
         return {
-            $get: ['$log', '$rootScope', AsyncService]
+            $get: ['$log', '$rootScope', asyncService]
         };
     });
 
