@@ -24,11 +24,16 @@
                 // normally lets $rootScope.$digest()
                 var scope = $rootScope;
 
-                if (mode) {
-                    // but if scope is passed, let's call scope.$digest() or
-                    // if other truth-y arg is passed (not a scope) just
-                    // don't $digest()
-                    scope = angular.isFunction(mode.$digest) ? mode : null;
+                if (mode === false) {
+                    // if false is passed don't $digest()
+                    scope = null;
+                } else if (mode && angular.isFunction(mode.$digest)) {
+                    // but if scope is passed, let's call scope.$digest()
+                    scope = mode;
+                } else {
+                    $log.error(new Error(
+                        'Second arg passed to $async has to be a Scope instance or false. :: triNgAsync.$async'
+                    ));
                 }
 
                 // as we know proper mode (clean/localScope/rootScope) we can
@@ -54,7 +59,7 @@
                 // nice way to call without $digest in coffee
                 // $async.clean -> doSomething()
                 clean: function (fn) {
-                    return this(fn, true);
+                    return this(fn, false);
                 },
 
                 // nice way to call with local $digest in coffee
